@@ -8,7 +8,7 @@ Authors@R: c(
   person("Salla", "Toikkanen", email="salla.toikkanen@thl.fi", role = "aut"),
   person("Tarja", "Palosaari", email="tarja.palosaari@thl.fi", role = "aut"),
   person("Petteri", "Mäntymaa", email="petteri.mantymaa@thl.fi", role = "aut"))
-BugReports: https://source.thl.fi/gitbucket/r-packages/thlGraphs/issues
+BugReports: Please contact the package maintainer
 Description: Tools for creating THL themed graphics adhering to the 2018 graphical guidelines
 License: EUPL
 RoxygenNote: 6.1.1
