@@ -1,0 +1,20 @@
+Package: thlGraphs
+Type: Package
+Title: THL style graphs
+Version: 1.0
+Date: 2018-10-30
+Authors@R: c(
+  person("Oskari", "Luomala", email="oskari.luomala@thl.fi", role = c("aut", "cre")),
+  person("Salla", "Toikkanen", email="salla.toikkanen@thl.fi", role = "aut"),
+  person("Tarja", "Palosaari", email="tarja.palosaari@thl.fi", role = "aut"),
+  person("Petteri", "Mäntymaa", email="petteri.mantymaa@thl.fi", role = "aut"))
+BugReports: https://source.thl.fi/gitbucket/r-packages/thlGraphs/issues
+Description: Tools for creating THL themed graphics adhering to the 2018 graphical guidelines
+License: EUPL
+RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
+Depends: R (>= 3.4.0), ggplot2
+Imports: png, grid, grDevices
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr

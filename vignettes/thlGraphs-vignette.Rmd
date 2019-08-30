@@ -1,0 +1,359 @@
+---
+title: "thlGraphs Vignette"
+author: "Petteri Mäntymaa, Tarja Palosaari, Salla Toikkanen, Oskari Luomala, Marianna Mukkulainen"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = NA
+)
+library(thlGraphs)
+```
+
+## Demostration of THL's colors
+
+
+
+There are five different types: ``main``, ``quali``, ``twoway``, ``quanti`` and ``powerpoint``.
+
+</br>
+
+Choosing colors by using ``thlColors`` function. Select number of colors, type and name of palette.
+
+</br>
+
+Example. Generate 3 colours from the quantitative color palette ``S2``.
+
+```{r}
+thlColors(n = 3, type = "quanti", name = "S2")
+```
+
+</br>
+
+Displaying colors by using ``thlColorsDisplay`` function. There you can also select number of colors, type and name of palette as in ``thlColors`` function.
+
+</br>
+
+Example. Display 3 colors from the quantitative color palette ``S2``.
+
+```{r, fig.width=7, fig.height=1}
+thlColorsDisplay(n = 3, type = "quanti", name = "S2")
+```
+
+## Type ``main`` - THL main colors
+
+
+
+In type ``main`` is four different number of colors: 1, 2, 4 and 8. 
+
+</br>
+
+Example. Generate 2 colors from the main color.
+
+```{r}
+thlColors(n = 8, type = "main")
+```
+
+
+</br>
+
+Example. Display 1 colors from the main color.
+
+```{r, fig.width=7, fig.height=1}
+thlColorsDisplay(n = 1, type = "main")
+```
+
+</br>
+
+Example. Display 2 colors from the main color.
+
+```{r, fig.width=7, fig.height=1}
+thlColorsDisplay(n = 2, type = "main")
+```
+
+</br>
+
+
+Example. Display 4 colors from the main color.
+
+```{r, fig.width=7, fig.height=1}
+thlColorsDisplay(n = 4, type = "main")
+```
+
+</br>
+
+Example. Display 8 colors from the main color.
+
+```{r, fig.width=7, fig.height=1}
+thlColorsDisplay(n = 8, type = "main")
+```
+
+## Type ``quali`` - THL qualitative colours
+
+THL qualitative colors in the order in which they should be used in line plots. There is 10 different number of colors.
+
+</br>
+
+Example of maximum colors. Generate 6 colors from the qualitative color palette color ``line``.
+
+```{r}
+thlColors(n = 6, type = "quali", name="line")
+```
+
+</br>
+
+Example of maximum colors. Display 6 colors from the qualitative color palette color ``line``.
+
+```{r, fig.width=7, fig.height=1}
+thlColorsDisplay(n = 6, type = "quali", name="line")
+```
+
+</br>
+
+Example of maximum colors. Generate 10 colours from the qualitative color palette color ``bar``.
+
+```{r}
+thlColors(n = 10, type = "quali", name="bar")
+```
+
+</br>
+
+Example of maximum colors. Display 10 colors from the qualitative color  palette color ``bar``.
+
+```{r, fig.width=7, fig.height=1}
+thlColorsDisplay(n = 10, type = "quali", name="bar")
+```
+
+## Type ``quanti`` - THL quantitative colours
+
+In type ``quanti`` you can choose six different names of palette: ``S1,S2,S3,... or S6``. Also you can choose from 1 to 7 number of colors. 
+
+</br>
+
+Example of maximum colors. Generate 7 colors from the quantitative color palette ``S1``.
+```{r}
+thlColors(n = 7, type = "quanti", name="S1")
+```
+
+</br>
+
+Example of maximum colors. Display 1-7 colors from the quantitative color palette ``S1``.
+```{r, fig.width=7}
+thlColorsDisplay(n = 1:7, type = "quanti", name="S1")
+```
+
+</br>
+
+Example of maximum colors. Generate 7 colors from the quantitative color palette ``S2``.
+```{r}
+thlColors(n = 7, type = "quanti", name="S2")
+```
+
+</br>
+
+Example of maximum colors. Display 1-7 colors from the quantitative color palette ``S2``.
+```{r, fig.width=7}
+thlColorsDisplay(n = 1:7, type = "quanti", name="S2")
+```
+
+</br>
+
+Example of maximum colors. Generate 7 colors from the quantitative color palette ``S3``.
+```{r}
+thlColors(n = 7, type = "quanti", name="S3")
+```
+
+</br>
+
+Example of maximum colors. Display 1-7 colors from the quantitative color palette ``S3``.
+```{r, fig.width=7}
+thlColorsDisplay(n = 1:7, type = "quanti", name="S3")
+```
+
+</br>
+
+Example of maximum colors. Generate 7 colors from the quantitative color palette ``S4``.
+```{r}
+thlColors(n = 7, type = "quanti", name="S4")
+```
+
+</br>
+
+Example of maximum colors. Display 1-7 colors from the quantitative color palette ``S4``.
+```{r, fig.width=7}
+thlColorsDisplay(n = 1:7, type = "quanti", name="S4")
+```
+
+</br>
+
+Example of maximum colors. Generate 7 colors from the quantitative color palette ``S5``.
+```{r}
+thlColors(n = 7, type = "quanti", name="S5")
+```
+
+</br>
+
+Example of maximum colors. Display 1-7 colors from the quantitative color palette ``S5``.
+```{r, fig.width=7}
+thlColorsDisplay(n = 1:7, type = "quanti", name="S5")
+```
+
+</br>
+
+Example of maximum colors. Generate 7 colors from the quantitative color palette ``S6``.
+```{r}
+thlColors(n = 7, type = "quanti", name="S6")
+```
+
+</br>
+
+Example of maximum colors. Display 1-7 colors from the quantitative color palette ``S6``.
+```{r, fig.width=7}
+thlColorsDisplay(n = 1:7, type = "quanti", name="S6")
+```
+
+## Type ``twoway`` - THL twoway quantitative colors
+
+Using twoway quantitative color palettes
+
+</br>
+
+THL twoway color palette ``K1`` with 7 colors
+
+</br>
+
+Example of maximum colors. Generate 7 colors from the twoway quantitative color palette ``K1``.
+```{r}
+thlColors(n = 7, type = "twoway", name = "K1")
+```
+
+</br>
+
+Displaying all different twoway palettes
+
+</br>
+
+Example of maximum colors. Display 3, 5, 7 and 9 colors from the twoway quantitative color palette ``K1``.
+```{r, fig.width=7}
+thlColorsDisplay(n = c(3,5,7,9), type = "twoway", name = "K1")
+```
+
+</br>
+
+Example of maximum colors.  Display 3, 5, 7 and 9 colors from the twoway quantitative color palette ``K2``.
+```{r, fig.width=7}
+thlColorsDisplay(n = c(3,5,7,9), type = "twoway", name = "K2")
+```
+
+</br>
+
+Example of maximum colors.  Display 3, 5, 7 and 9 colors from the twoway quantitative color palette ``K3``.
+```{r, fig.width=7}
+thlColorsDisplay(n = c(3,5,7,9), type = "twoway", name = "K3")
+```
+
+</br>
+
+Example of maximum colors.  Display 3, 5, 7 and 9 colors from the twoway quantitative color palette ``K4``.
+```{r, fig.width=7}
+thlColorsDisplay(n = c(3,5,7,9), type = "twoway", name = "K4")
+```
+
+</br>
+
+Example of maximum colors.  Display 3, 5, 7 and 9 colors from the twoway quantitative color palette ``K5``.
+```{r, fig.width=7}
+thlColorsDisplay(n = c(3,5,7), type = "twoway", name = "K5")
+```
+
+</br>
+
+Example of maximum colors.  Display 3, 5, 7 and 9 colors from the twoway quantitative color palette ``K6`.
+```{r, fig.width=7}
+thlColorsDisplay(n = c(3,5,7), type = "twoway", name = "K6")
+```
+
+## Type ``powerpoint``
+
+Example of maximum colors. Generate 9 colors from the powerpoint color.
+```{r}
+thlColors(n = 9, type = "powerpoint") 
+```
+
+</br>
+
+Example of maximum colors. Display 9 colors from the powerpoint color.
+```{r, fig.width=7, fig.height=1}
+thlColorsDisplay(n = 9, type = "powerpoint") 
+```
+
+
+
+
+## Demostration of THL's graphs
+
+
+
+There are two different types: ``thlBarPlot``, ``thlLinePlot``.
+
+</br>
+
+
+Example of Bar plot. Barplot of monthly percentages (%) of patients treated over 180 days with caption year 2017. Data="yli180".
+```{r, fig.width=7, fig.height=1}
+data("yli180")
+yli180$pros <- as.numeric(as.character(yli180$pros))
+mycaption <- c(expression(paste(bold("Lähde:"), " THL")))  ## A caption which is partially in bold
+thlBarPlot(data = subset(yli180, grepl("2017", kk)), xvar = kk, yvar = pros, ylimits = c(0,2), ylabel = "%", title = "Erikoissairaanhoidosssa yli 180 vrk odottaneet", caption = mycaption)
+```
+
+</br>
+
+
+Cont...Example of Bar plot with horizontal mode.
+```{r, fig.width=7, fig.height=1}
+data("yli180")
+yli180$pros <- as.numeric(as.character(yli180$pros))
+mycaption <- c(expression(paste(bold("Lähde:"), " THL")))  ## A caption which is partially in bold
+thlBarPlot(data = subset(yli180, grepl("2017", kk)), xvar = kk, yvar = pros, ylimits = c(0,2), ylabel = "%", title = "Erikoissairaanhoidosssa yli 180 vrk odottaneet", caption = mycaption, horizontal = TRUE)
+```
+
+
+</br>
+
+
+Examples of Line plots. Data="yli180". Thl logo is included in the plot.
+
+
+Default ilne plot. Data=yli90.
+' ## Default line plot:
+#' thlLinePlot(data = subset(dat, year<2007), xvar = year, yvar = value, 
+#'                    groupvar = group, ylimits = c(0,350000))
+```{r, fig.width=7, fig.height=1, echo=FALSE}
+data("yli90")
+yli90$AVI2<-factor(yli90$AVI, levels = yli90$AVI, labels = c("Etelä-Suomi","Lounais-Suomi","Itä-Suomi","Länsi- ja Sisä-Suomi", "Pohjois-Suomi", "Lappi"))
+thlLinePlot(data = yli90, xvar = AVI2, yvar = `1/2018`, ylimits = c(0,700), ylab = "count",
+title = "AVI Suomen eri osissa tammikuussa 2018",
+caption="")
+thlPlotLogo(label =NULL, x = .67, y = .04, size = 1, fontsize = 10)
+```
+, xaxis.breaks=c("Itä-Suomi", "Lappi")
+
+```{r, fig.width=7, fig.height=1}
+data("yli180")
+yli180$kk2<-factor(yli180$kk, levels = yli180$kk)
+thlLinePlot(data = yli180, xvar = kk2, yvar = pros, ylimits = c(0,2), ylab = "%",
+title = "Erikoissairaanhoidosssa yli 180 vuorokautta hoitoa \nodottaneet kolmannesvuosittain 2015 - 2018",
+caption="", xaxis.breaks = c("12/2015","12/2016","12/2017","12/2018"))
+thlPlotLogo(label =NULL, x = .67, y = .04, size = 1, fontsize = 10)
+```
+
+
+
