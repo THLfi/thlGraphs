@@ -14,6 +14,15 @@ The current version of the package hosts
 
 thlGraphs aims at providing easy-to-use tools for creating graphs and other visual elements tailored to match the needs of THL personnel. The tools are build to follow the the 2018 graphical guidelines.
 
+### Get started
+
+Installation:
+
+```
+devtools::install_github("THLfi/thlGraphs")
+```
+
+[Documentation](https://thlfi.github.io/thlGraphs/)
 
 ---
 
