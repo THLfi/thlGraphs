@@ -9,6 +9,7 @@
 #' @param legend.position Position of the legend text
 #' @param horizontal Set as TRUE if plotting horizontal bars
 #' @param x.axis.title Set as TRUE if x-axis label is desired
+#' @param y.axis.title.vertical Set as TRUE if y-axis title should be along y-axis., i.e. vertical
 #' @return theme() object, to be combined with ggplot object with "+"
 #' @import ggplot2
 #' @export
@@ -16,7 +17,7 @@
 
 thlTheme <- function(show.grid.y = TRUE, show.grid.x = FALSE, base.size = 16,
                       basic.lwd = 3, legend.position = "none", horizontal = FALSE,
-                     x.axis.title = FALSE) {
+                     x.axis.title = FALSE, y.axis.title.vertical = FALSE) {
   if (.Platform$OS.type == 'windows') {
     windowsFonts(ArialMT = windowsFont("ArialMT"))
   }
@@ -72,7 +73,7 @@ thlTheme <- function(show.grid.y = TRUE, show.grid.x = FALSE, base.size = 16,
     axis.title.y = element_blank()
   }
   else {
-    axis.title.y = element_text( angle = 0, size = 0.75*base.size, family =font.family, 
+    axis.title.y = element_text( angle = 90*y.axis.title.vertical, size = 0.75*base.size, family =font.family, 
                   colour = "#606060", vjust=1.05, ## 10pt in instructions
                   margin = margin(b=10, t=10)) ##  y title on top, not above the axis the axis!!!!
   }
