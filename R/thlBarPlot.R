@@ -1,36 +1,47 @@
 #' Make THL bar plots, vertical and horizontal
 #' @inheritParams thlLinePlot
-#' @param xvar variable to be plotted on the x-axis. MUST be character or factor; numeric values cause an error
-#' @param xaxis.labels a character vector defining the x-axis labels. To allow automatic calculation, use waiver(). Set NULL to not show at all.
-#' @param yaxis.breaks a character vector defining the y-axis breaks and tickmarks. Also affects the y-axis grid when it is set to TRUE. To allow automatic calculation, use waiver()
+#' @param xvar variable to be plotted on the x-axis. MUST be character or factor; 
+#' numeric values cause an error
+#' @param xaxis.labels a character vector defining the x-axis labels. 
+#' To allow automatic calculation, use waiver(). Set NULL to not show at all.
+#' @param yaxis.breaks a character vector defining the y-axis breaks and tickmarks. 
+#' Also affects the y-axis grid when it is set to TRUE. 
+#' To allow automatic calculation, use waiver().
 #' @param barwd bar width, default 0.7
 #' @param show.value plot y-values or not (TRUE/FALSE)
 #' @param value.box y-values as text boxes (TRUE/FALSE)
-#' @param value.digits number of digits when rounding of y-values shown (default is no rounding)
+#' @param value.digits number of digits when rounding of y-values shown 
+#' (default is no rounding)
 #' @param value.size font size for values 
 #' @param value.vjust position of value text or box, default is 0.9
 #' @param value.hjust horizontal position of value text or box, default is 0.5
-#' @param horizontal set TRUE to get horizontal bars. Default is FALSE (vertical bars)
-#' @param stacked set TRUE (default) to get stacked bars for groups, FALSE to dodged (side to side) bars
+#' @param horizontal set TRUE to get horizontal bars. 
+#' Default is FALSE (vertical bars)
+#' @param stacked set TRUE (default) to get stacked bars for groups, 
+#' FALSE to dodged (side to side) bars
 #' @param yaxis set FALSE to not show y axis labels. Default is TRUE 
 #' @param xaxis set FALSE to not show x axis line. Default is TRUE 
 #' @import ggplot2
 #' @seealso \href{https://terho.thl.fi/wiki01/x/vQM9CQ}{Terho: R ggplot2 graphs with THL visual theme}
 #' @return  a ggplot object
 #' @author Tarja Palosaari, Petteri Mäntymaa, Salla Toikkanen
-#' @examples 
+#' @examples
+#' \dontrun{
 #' data("yli180") 
 #' yli180$pros <- as.numeric(as.character(yli180$pros))
-#' mycaption <- c(expression(paste(bold("Lähde:"), " THL")))  ## A caption which is partially in bold
+#' ## A caption which is partially in bold
+#' mycaption <- c(expression(paste(bold("Lähde:"), " THL")))  
 #' ## Default, vertical bar plot:
 #' thlBarPlot(data = subset(yli180, grepl("2017", kk)), xvar = kk, yvar = pros,
-#'                  ylimits = c(0,2), ylabel = "%", title = "Erikoissairaanhoidosssa yli 180 vrk odottaneet", caption = mycaption)
+#'            ylimits = c(0,2), ylabel = "%", 
+#'            title = "Erikoissairaanhoidosssa yli 180 vrk odottaneet", 
+#'            caption = mycaption)
 #' ## horizontal bar plot: 
 #' thlBarPlot(data = subset(yli180, grepl("2017", kk)), xvar = kk, yvar = pros,
-#'                  ylimits = c(0,2), ylabel = "%", horizontal = TRUE)
+#'            ylimits = c(0,2), ylabel = "%", horizontal = TRUE)
+#' }
 #' @export 
-
-thlBarPlot<-function(data, 
+thlBarPlot <- function(data, 
                      xvar, 
                      yvar, 
                      groupvar = NULL, 

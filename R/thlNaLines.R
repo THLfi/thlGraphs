@@ -7,7 +7,7 @@
 #' @export
 
 thlNaLines <- function(data, xvar, yvar, groupvar){
-  
+  data <- as.data.frame(data)
   foodf<-data[is.na(data[,yvar]),]
   missing.list<-lapply(as.list(1:dim(foodf)[1]), function(x) foodf[x[1],])
   todo <- !all(sapply(missing.list, function(a) all(is.na(a))) == TRUE)
@@ -36,4 +36,4 @@ thlNaLines <- function(data, xvar, yvar, groupvar){
   }
   else(interp <- NULL)
   interp
-}   
+} 

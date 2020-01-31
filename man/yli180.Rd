@@ -20,7 +20,7 @@ yli180
 Käytössä olevat rajoitukset
 Palveluntuottaja	SAIRAANHOITOPIIRIT
 Erikoisala	KIRURGIA
-Mittari	Yli 180 vrk, %, hoitoa odottaneet
+Mittari	Yli 180 vrk, \%, hoitoa odottaneet
 Kuutio päivitetty 27.05.2018
 (c) Terveyden ja hyvinvoinnin laitos 2018, CC BY 4.0
 }

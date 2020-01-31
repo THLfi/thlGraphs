@@ -4,10 +4,22 @@
 \alias{thlAnnotate}
 \title{Add annotations to the plot}
 \usage{
-thlAnnotate(type = c("box", "label"), x, y, xend = x, yend = y,
-  label, arrow.size = 10, text.size = 16, hjust = 0.5,
-  style = c("white", "dark"), fill = TRUE, boldFont = TRUE,
-  capitalized = FALSE, box.size = 0.4)
+thlAnnotate(
+  type = c("box", "label"),
+  x,
+  y,
+  xend = x,
+  yend = y,
+  label,
+  arrow.size = 10,
+  text.size = 16,
+  hjust = 0.5,
+  style = c("white", "dark"),
+  fill = TRUE,
+  boldFont = TRUE,
+  capitalized = FALSE,
+  box.size = 0.4
+)
 }
 \arguments{
 \item{type}{Type of annotation wanted: "box" for a text box or "label" for text}

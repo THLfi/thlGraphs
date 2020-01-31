@@ -5,7 +5,8 @@
 #' @param breaks waiver() is the default breaks, see scale_continuous()
 #' @param sec.axis specify a secondary axis, see scale_continuous()
 #' @param sec.axis.breaks  waiver() is the default breaks for a secondary axis
-#' @param sec.axis.labels the labels to be plotted on secondary axis, waiver() is the default, see sec_axis()
+#' @param sec.axis.labels the labels to be plotted on secondary axis, 
+#' waiver() is the default, see sec_axis()
 #' @return ggplot options, to be combined with ggplot object with "+"
 #' @seealso \code{\link{scale_x_continuous}} \code{\link{sec_axis}}
 #' @author  Salla Toikkanen, Tarja Palosaari, Petteri Mäntymaa

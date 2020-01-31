@@ -12,11 +12,11 @@
 #' @return theme() object, to be combined with ggplot object with "+"
 #' @import ggplot2
 #' @export
-
-
 thlTheme <- function(show.grid.y = TRUE, show.grid.x = FALSE, base.size = 16,
                       basic.lwd = 3, legend.position = "none", horizontal = FALSE,
                      x.axis.title = FALSE) {
+  .Deprecated("theme_thl")
+  ## to avoid error messages about Arial font on Windows
   if (.Platform$OS.type == 'windows') {
     windowsFonts(ArialMT = windowsFont("ArialMT"))
   }

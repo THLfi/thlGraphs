@@ -4,22 +4,46 @@
 \alias{thlBarPlot}
 \title{Make THL bar plots, vertical and horizontal}
 \usage{
-thlBarPlot(data, xvar, yvar, groupvar = NULL, ylabel = yvar,
-  xlabel = NULL, colors = thlColors(n = 5, type = "quali", name =
-  "bar"), title = NULL, subtitle = NULL, caption = NULL,
-  legend.position = "none", base.size = 16, show.grid.x = FALSE,
-  show.grid.y = TRUE, lang = "fi", ylimits = NULL,
-  xaxis.breaks = waiver(), xaxis.labels = waiver(),
-  yaxis.breaks = waiver(), panels = FALSE, nrow.panels = 1,
-  barwd = 0.7, show.value = FALSE, value.box = FALSE,
-  value.digits = NULL, value.size = thlPtsConvert(9),
-  value.vjust = 0.9, value.hjust = 0.5, horizontal = FALSE,
-  stacked = TRUE, yaxis = TRUE, xaxis = TRUE)
+thlBarPlot(
+  data,
+  xvar,
+  yvar,
+  groupvar = NULL,
+  ylabel = yvar,
+  xlabel = NULL,
+  colors = thlColors(n = 5, type = "quali", name = "bar"),
+  title = NULL,
+  subtitle = NULL,
+  caption = NULL,
+  legend.position = "none",
+  base.size = 16,
+  show.grid.x = FALSE,
+  show.grid.y = TRUE,
+  lang = "fi",
+  ylimits = NULL,
+  xaxis.breaks = waiver(),
+  xaxis.labels = waiver(),
+  yaxis.breaks = waiver(),
+  panels = FALSE,
+  nrow.panels = 1,
+  barwd = 0.7,
+  show.value = FALSE,
+  value.box = FALSE,
+  value.digits = NULL,
+  value.size = thlPtsConvert(9),
+  value.vjust = 0.9,
+  value.hjust = 0.5,
+  horizontal = FALSE,
+  stacked = TRUE,
+  yaxis = TRUE,
+  xaxis = TRUE
+)
 }
 \arguments{
 \item{data}{a data frame}
 
-\item{xvar}{variable to be plotted on the x-axis. MUST be character or factor; numeric values cause an error}
+\item{xvar}{variable to be plotted on the x-axis. MUST be character or factor;
+numeric values cause an error}
 
 \item{yvar}{variable to be plotted on the y-axis.}
 
@@ -29,7 +53,9 @@ thlBarPlot(data, xvar, yvar, groupvar = NULL, ylabel = yvar,
 
 \item{xlabel}{x-axis label. Defaults to NULL (omitted).}
 
-\item{colors}{colors to be used. Defaults to THL qualitative color palette for line plots (see \code{\link{thlColors}}).}
+\item{colors}{colors to be used.
+Defaults to THL qualitative color palette for line plots
+(see \code{\link{thlColors}}).}
 
 \item{title}{a character string specifying the title of the plot.}
 
@@ -37,25 +63,37 @@ thlBarPlot(data, xvar, yvar, groupvar = NULL, ylabel = yvar,
 
 \item{caption}{a character string specifying the caption of the plot .}
 
-\item{legend.position}{e.g. "topright", (see \code{\link{theme}}). Omit with "none".}
+\item{legend.position}{e.g. "topright",
+(see \code{\link{theme}}). Omit with "none".}
 
-\item{base.size}{the size of basic text in the plot title, axis labels in PostScript points, defaults to 16.}
+\item{base.size}{the size of basic text in the plot title,
+axis labels in PostScript points, defaults to 16.}
 
 \item{show.grid.x}{TRUE/FALSE, defaults to FALSE.}
 
-\item{show.grid.y}{TRUE/FALSE, defaults to TRUE. Set the grid sequence with parameter yaxis.breaks}
+\item{show.grid.y}{TRUE/FALSE, defaults to TRUE.
+Set the grid sequence with parameter yaxis.breaks}
 
-\item{lang}{language options for the y-axis labels. Defines the style of big marks and decimal marks (see \code{\link{thlYaxisControl}})}
+\item{lang}{language options for the y-axis labels.
+Defines the style of big marks and decimal marks
+(see \code{\link{thlYaxisControl}})}
 
 \item{ylimits}{limits for the y-axis}
 
-\item{xaxis.breaks}{a character vector defining the x-axis breaks and tickmarks. Also affects the x-axis grid when it is set to TRUE. To allow automatic calculation, use waiver()}
+\item{xaxis.breaks}{a character vector defining the x-axis breaks and tickmarks.
+Also affects the x-axis grid when it is set to TRUE.
+To allow automatic calculation, use waiver()}
 
-\item{xaxis.labels}{a character vector defining the x-axis labels. To allow automatic calculation, use waiver(). Set NULL to not show at all.}
+\item{xaxis.labels}{a character vector defining the x-axis labels.
+To allow automatic calculation, use waiver(). Set NULL to not show at all.}
 
-\item{yaxis.breaks}{a character vector defining the y-axis breaks and tickmarks. Also affects the y-axis grid when it is set to TRUE. To allow automatic calculation, use waiver()}
+\item{yaxis.breaks}{a character vector defining the y-axis breaks and tickmarks.
+Also affects the y-axis grid when it is set to TRUE.
+To allow automatic calculation, use waiver().}
 
-\item{panels}{TRUE/FALSE, should multiple graphs be plotted in separate panels? If TRUE, the panels are based on the grouping variable defined by the groupvar -argument.}
+\item{panels}{TRUE/FALSE, should multiple graphs be plotted in separate panels?
+If TRUE, the panels are based on the grouping variable
+defined by the groupvar -argument.}
 
 \item{nrow.panels}{In how many rows should the panels be plotted?}
 
@@ -65,7 +103,8 @@ thlBarPlot(data, xvar, yvar, groupvar = NULL, ylabel = yvar,
 
 \item{value.box}{y-values as text boxes (TRUE/FALSE)}
 
-\item{value.digits}{number of digits when rounding of y-values shown (default is no rounding)}
+\item{value.digits}{number of digits when rounding of y-values shown
+(default is no rounding)}
 
 \item{value.size}{font size for values}
 
@@ -73,9 +112,11 @@ thlBarPlot(data, xvar, yvar, groupvar = NULL, ylabel = yvar,
 
 \item{value.hjust}{horizontal position of value text or box, default is 0.5}
 
-\item{horizontal}{set TRUE to get horizontal bars. Default is FALSE (vertical bars)}
+\item{horizontal}{set TRUE to get horizontal bars.
+Default is FALSE (vertical bars)}
 
-\item{stacked}{set TRUE (default) to get stacked bars for groups, FALSE to dodged (side to side) bars}
+\item{stacked}{set TRUE (default) to get stacked bars for groups,
+FALSE to dodged (side to side) bars}
 
 \item{yaxis}{set FALSE to not show y axis labels. Default is TRUE}
 
@@ -88,15 +129,20 @@ a ggplot object
 Make THL bar plots, vertical and horizontal
 }
 \examples{
+\dontrun{
 data("yli180") 
 yli180$pros <- as.numeric(as.character(yli180$pros))
-mycaption <- c(expression(paste(bold("Lähde:"), " THL")))  ## A caption which is partially in bold
+## A caption which is partially in bold
+mycaption <- c(expression(paste(bold("Lähde:"), " THL")))  
 ## Default, vertical bar plot:
 thlBarPlot(data = subset(yli180, grepl("2017", kk)), xvar = kk, yvar = pros,
-                 ylimits = c(0,2), ylabel = "\%", title = "Erikoissairaanhoidosssa yli 180 vrk odottaneet", caption = mycaption)
+           ylimits = c(0,2), ylabel = "\%", 
+           title = "Erikoissairaanhoidosssa yli 180 vrk odottaneet", 
+           caption = mycaption)
 ## horizontal bar plot: 
 thlBarPlot(data = subset(yli180, grepl("2017", kk)), xvar = kk, yvar = pros,
-                 ylimits = c(0,2), ylabel = "\%", horizontal = TRUE)
+           ylimits = c(0,2), ylabel = "\%", horizontal = TRUE)
+}
 }
 \seealso{
 \href{https://terho.thl.fi/wiki01/x/vQM9CQ}{Terho: R ggplot2 graphs with THL visual theme}

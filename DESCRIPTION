@@ -1,8 +1,8 @@
 Package: thlGraphs
 Type: Package
 Title: THL style graphs
-Version: 1.0
-Date: 2018-10-30
+Version: 1.1
+Date: 2020-01-27
 Authors@R: c(
   person("Oskari", "Luomala", email="oskari.luomala@thl.fi", role = c("aut", "cre")),
   person("Salla", "Toikkanen", email="salla.toikkanen@thl.fi", role = "aut"),
@@ -11,7 +11,7 @@ Authors@R: c(
 BugReports: Please contact the package maintainer
 Description: Tools for creating THL themed graphics adhering to the 2018 graphical guidelines
 License: EUPL
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Depends: R (>= 3.4.0), ggplot2

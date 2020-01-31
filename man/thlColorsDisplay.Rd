@@ -4,8 +4,14 @@
 \alias{thlColorsDisplay}
 \title{Display THL colours}
 \usage{
-thlColorsDisplay(n = 1:12, type = "quali", name = NULL,
-  allow.interpolation = FALSE, alpha = 1, thin = 1)
+thlColorsDisplay(
+  n = 1:12,
+  type = "quali",
+  name = NULL,
+  allow.interpolation = FALSE,
+  alpha = 1,
+  thin = 1
+)
 }
 \arguments{
 \item{n}{a numerical value or a vector describing how many colours of the palette should be shown}
@@ -17,11 +23,14 @@ Allowed values are "main" for the THL main colors (8 colors, for printed media),
 "quanti" for quantitative palettes and
 "twoway" for twoway quantitative palettes}
 
-\item{name}{a character string specifying the name of the specific colour palette. Valid values include "line", "bar" and NULL for type "quali",
+\item{name}{a character string specifying the name of the specific colour palette.
+Valid values include "line", "bar" and NULL for type "quali",
 "S1" - "S6" for type "quanti" and "K1" - "K6" for type "twoway" (see examples)}
 
-\item{allow.interpolation}{a logical TRUE/FALSE whather colour palette interpoation with grDevices::colorRampPalette() should be allowed
-if n is outside the range of official number of colours in each quantitative or twoway quantitative palettes.}
+\item{allow.interpolation}{a logical TRUE/FALSE whather colour palette
+interpoation with grDevices::colorRampPalette() should be allowed
+if n is outside the range of official number of colours in each quantitative
+or twoway quantitative palettes.}
 
 \item{alpha}{Amount of transparency, 1 = not transparent, 0 = fully transparent.
 Recycled.}

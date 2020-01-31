@@ -4,9 +4,14 @@
 \alias{thlYaxisControl}
 \title{Control y-axis limits, big marks and decimal marks}
 \usage{
-thlYaxisControl(lang = "fi", limits = NULL, breaks = waiver(),
-  sec.axis = FALSE, sec.axis.breaks = waiver(),
-  sec.axis.labels = waiver())
+thlYaxisControl(
+  lang = "fi",
+  limits = NULL,
+  breaks = waiver(),
+  sec.axis = FALSE,
+  sec.axis.breaks = waiver(),
+  sec.axis.labels = waiver()
+)
 }
 \arguments{
 \item{lang}{Language: "fi" (default) for Finnish or "en" for English}
@@ -19,7 +24,8 @@ thlYaxisControl(lang = "fi", limits = NULL, breaks = waiver(),
 
 \item{sec.axis.breaks}{waiver() is the default breaks for a secondary axis}
 
-\item{sec.axis.labels}{the labels to be plotted on secondary axis, waiver() is the default, see sec_axis()}
+\item{sec.axis.labels}{the labels to be plotted on secondary axis,
+waiver() is the default, see sec_axis()}
 }
 \value{
 ggplot options, to be combined with ggplot object with "+"

@@ -31,6 +31,7 @@
 thlColorsDisplay <- function(n = 1:12, type = "quali", name = NULL, 
                                       allow.interpolation = FALSE, 
                              alpha = 1, thin = 1){
+  .Deprecated("plot_palette_thl")
   p1 <-sapply(n, function(a) thlColors(n = a, type = type, name = name,
                                                allow.interpolation = allow.interpolation, 
                                                alpha = alpha, thin = thin))

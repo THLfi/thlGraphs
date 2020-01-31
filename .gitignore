@@ -4,3 +4,4 @@
 .Ruserdata
 man/
 *.Rproj
+data-raw/

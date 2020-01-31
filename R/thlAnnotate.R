@@ -14,7 +14,6 @@
 #' @param boldFont set TRUE (default) for bolded font
 #' @param capitalized set TRUE for upper case letters, default is FALSE
 #' @param box.size unused
-#' @import ggplot2
 #' @author Salla Toikkanen, Tarja Palosaari, Petteri Mäntymaa
 #' @export
 

@@ -25,7 +25,7 @@ or by just dimming down.
 \details{
 Same thin is used for all components of RGB. Thus \code{thin=0} always
 results in white. No value checking is done, so either \code{thin} or
-\code{alpha} outside 0,1 most likely results in error.
+\code{alpha} outside [0,1] most likely results in error.
 }
 \note{
 Not all graphics devices support transparency. Parameter \code{thin}

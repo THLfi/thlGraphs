@@ -6,41 +6,61 @@
 #' @param groupvar grouping variable. Defaults to NULL (no grouping).
 #' @param ylabel y-axis label. Defaults to yvar.
 #' @param xlabel x-axis label. Defaults to NULL (omitted).
-#' @param colors colors to be used. Defaults to THL qualitative color palette for line plots (see \code{\link{thlColors}}).
+#' @param colors colors to be used. 
+#' Defaults to THL qualitative color palette for line plots 
+#' (see \code{\link{thlColors}}).
 #' @param title a character string specifying the title of the plot.
 #' @param subtitle a charater string specifing the subtitle of the plot.
 #' @param caption a character string specifying the caption of the plot .
-#' @param legend.position e.g. "topright", (see \code{\link{theme}}). Omit with "none".
-#' @param base.size the size of basic text in the plot title, axis labels in PostScript points, defaults to 16.
+#' @param legend.position e.g. "topright", 
+#' (see \code{\link{theme}}). Omit with "none".
+#' @param base.size the size of basic text in the plot title, 
+#' axis labels in PostScript points, defaults to 16.
 #' @param linewidth width of the line in PostScript points, defaults to 3.
 #' @param show.grid.x TRUE/FALSE, defaults to FALSE. 
-#' @param show.grid.y TRUE/FALSE, defaults to TRUE. Set the grid sequence with parameter yaxis.breaks 
-#' @param lang language options for the y-axis labels. Defines the style of big marks and decimal marks (see \code{\link{thlYaxisControl}})
+#' @param show.grid.y TRUE/FALSE, defaults to TRUE. 
+#' Set the grid sequence with parameter yaxis.breaks 
+#' @param lang language options for the y-axis labels. 
+#' Defines the style of big marks and decimal marks 
+#' (see \code{\link{thlYaxisControl}})
 #' @param ylimits limits for the y-axis
-#' @param marked.treshold the maximum amount of data points plotted with both line and a dot (default 10). 
-#' If the number of data points is greater than this treshold, dots are plotted only at the beginning and the end of the line. setting this to NULL will omit all dots.
-#' @param plot.missing TRUE/FALSE, should the missing values be linearly interpolated and plotted with dotted line (see \code{\link{thlNaLines}} for more details)?
-#' @param xaxis.breaks a character vector defining the x-axis breaks and tickmarks. Also affects the x-axis grid when it is set to TRUE. To allow automatic calculation, use waiver()
-#' @param yaxis.breaks a character vector defining the y-axis breaks and tickmarks. Also affects the y-axis grid when it is set to TRUE. To allow automatic calculation, use waiver()
-#' @param panels TRUE/FALSE, should multiple graphs be plotted in separate panels? If TRUE, the panels are based on the grouping variable defined by the groupvar -argument. 
+#' @param marked.treshold the maximum amount of data points plotted 
+#' with both line and a dot (default 10). 
+#' If the number of data points is greater than this treshold, 
+#' dots are plotted only at the beginning and the end of the line. 
+#' Setting this to NULL will omit all dots.
+#' @param plot.missing TRUE/FALSE, should the missing values be linearly 
+#' interpolated and plotted with dotted line 
+#' (see \code{\link{thlNaLines}} for more details)?
+#' @param xaxis.breaks a character vector defining the x-axis breaks and tickmarks. 
+#' Also affects the x-axis grid when it is set to TRUE. 
+#' To allow automatic calculation, use waiver()
+#' @param yaxis.breaks a character vector defining the y-axis breaks and tickmarks. 
+#' Also affects the y-axis grid when it is set to TRUE. 
+#' To allow automatic calculation, use waiver()
+#' @param panels TRUE/FALSE, should multiple graphs be plotted in separate panels? 
+#' If TRUE, the panels are based on the grouping variable 
+#' defined by the groupvar -argument. 
 #' @param nrow.panels In how many rows should the panels be plotted?  
-#' @param labels.end TRUE/FALSE. Whether the line labels should be displayed at the right end of each line
-#' @param circle TRUE/FALSE. Whether the shape is always circle or is allowed to vary across groupvar (hollow shapes 21:25 assumed).
-#' @import ggplot2
+#' @param labels.end TRUE/FALSE. 
+#' Whether the line labels should be displayed at the right end of each line
+#' @param circle TRUE/FALSE. If set FALSE shape parameter is set aes
+#' 
 #' @author Salla Toikkanen, Tarja Palosaari, Petteri Mäntymaa
-#' @import ggplot2
+#' 
 #' @return a ggplot -object
 #' 
 #' @examples 
-#' 
-#'## Generate data for demonstration 
+#' \dontrun{
+#' ## Generate data for demonstration
 #' year <- 1999:2017
 #' set.seed(1234)
 #' value1 <- jitter(c(250:(250+length(year)-1)), factor = 100)*1000
 #' value2 <- jitter(c(200:(200-length(year)+1)), factor = 300)*1000
 #' value3 <- jitter(c(100:(100-length(year)+1)), factor = 400)*1000
 #' dat <- data.frame(year = rep(year,3), value = c(value1, value2, value3), 
-#'                 group = factor(rep(c("Rabbits", "Magicians", "Playing cards"), each = length(year))))
+#'                 group = factor(rep(c("Rabbits", "Magicians", "Playing cards"), 
+#'                                    each = length(year))))
 #' dat$value <- with(dat, ifelse(year %in% c(2012,2013) & group == "Rabbits", NA, value))
 #' dat$value <- with(dat, ifelse(year == 2007 & group == "Magicians", NA, value))
 #' 
@@ -49,8 +69,10 @@
 #'                    groupvar = group, ylimits = c(0,350000))
 
 #' ## Add some decoration and transparency to the colors
-#' mycaption <- c(expression(paste(bold("Source:"), " My hat from the rack")))  ## A caption which is partially in bold
-#' thlLinePlot(data = subset(dat, year<2007), xvar = year, yvar = value, groupvar = group, 
+#' ## A caption which is partially in bold
+#' mycaption <- c(expression(paste(bold("Source:"), " My hat from the rack")))  
+#' thlLinePlot(data = subset(dat, year<2007), xvar = year, yvar = value, 
+#'                   groupvar = group, 
 #'                   title = "Random numbers from the hat!",
 #'                   caption = mycaption, 
 #'                   subtitle = "Maybe not totally random?", 
@@ -91,7 +113,8 @@
 #'                   legend.position = "right")
 
 #' ## ... or plot all groups on different panels ... 
-#' thlLinePlot(data = subset(dat, year>2010), xvar = year, yvar = value, groupvar = group, 
+#' thlLinePlot(data = subset(dat, year>2010), xvar = year, yvar = value, 
+#'                   groupvar = group, 
 #'                   title = "Random numbers from the hat!",
 #'                   caption = mycaption, 
 #'                   subtitle = "Maybe not totally random?",
@@ -101,7 +124,8 @@
 #'                   panels = TRUE, nrow.panels = 1)
 
 #' ## ... or annotate the information manually with thlAnnotate(): 
-#' res <- thlLinePlot(data = subset(dat, group %in% c("Rabbits", "Playing cards")), xvar = year, yvar = value, groupvar = group, 
+#' res <- thlLinePlot(data = subset(dat, group %in% c("Rabbits", "Playing cards")), 
+#'                    xvar = year, yvar = value, groupvar = group, 
 #'                   title = "Random numbers from the hat!",
 #'                   caption = mycaption, 
 #'                   subtitle = "Maybe not totally random?",
@@ -115,7 +139,8 @@
 #'                label = "Cards", style = "white",
 #'                fill = TRUE) + 
 #'   thlAnnotate(type = "box", x = 2012.5, y = 200000, yend = 260000,
-#'                label = "2011-14 are missing due \nto a hole in my hat", style = "white",
+#'                label = "2011-14 are missing due \nto a hole in my hat", 
+#'                style = "white",
 #'                fill = TRUE, text.size = 12) 
 
 
@@ -132,11 +157,12 @@
 #' data("yli180")
 #' yli180$kk2<-factor(yli180$kk, levels = yli180$kk)
 #' thlLinePlot(data = yli180, xvar = kk2, yvar = pros, ylimits = c(0,2), ylab = "%",
-#'            title = "Erikoissairaanhoidosssa yli 180 vuorokautta hoitoa \nodottaneet kolmannesvuosittain 2015 - 2018",
+#'            title = "Erikoissairaanhoidosssa yli 180 vuorokautta hoitoa 
+#' odottaneet kolmannesvuosittain 2015 - 2018",
 #'            caption="", xaxis.breaks = c("12/2015","12/2016","12/2017",
 #'            "12/2018"))
 #' thlPlotLogo(label = NULL, x = .67, y = .04, size = 1, fontsize = 10)
-
+#' }
 #' @export 
 
 thlLinePlot<-function(data, 

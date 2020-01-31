@@ -4,8 +4,14 @@
 \alias{thlColors}
 \title{Generate THL colour palettes}
 \usage{
-thlColors(n = 1, type = "main", name = NULL,
-  allow.interpolation = FALSE, alpha = 1, thin = 1)
+thlColors(
+  n = 1,
+  type = "main",
+  name = NULL,
+  allow.interpolation = FALSE,
+  alpha = 1,
+  thin = 1
+)
 }
 \arguments{
 \item{n}{a numerical value describing how many colours}
@@ -17,11 +23,14 @@ Allowed values are "main" for the THL main colors (8 colors, for printed media),
 "quanti" for quantitative palettes and
 "twoway" for twoway quantitative palettes}
 
-\item{name}{a character string specifying the name of the specific colour palette. Valid values include "line", "bar" and NULL for type "quali",
+\item{name}{a character string specifying the name of the specific colour palette.
+Valid values include "line", "bar" and NULL for type "quali",
 "S1" - "S6" for type "quanti" and "K1" - "K6" for type "twoway" (see examples)}
 
-\item{allow.interpolation}{a logical TRUE/FALSE whather colour palette interpoation with grDevices::colorRampPalette() should be allowed
-if n is outside the range of official number of colours in each quantitative or twoway quantitative palettes.}
+\item{allow.interpolation}{a logical TRUE/FALSE whather colour palette
+interpoation with grDevices::colorRampPalette() should be allowed
+if n is outside the range of official number of colours in each quantitative
+or twoway quantitative palettes.}
 
 \item{alpha}{Amount of transparency, 1 = not transparent, 0 = fully transparent.
 Recycled.}
@@ -53,7 +62,8 @@ thlColors(n = 10, type = "quali", name = NULL)
 ## THL qualitative colours in the order in which they should be used in line plots
 thlColors(n = 6, type = "quali", name = "line")
 
-## THL qualitative colours in the order in which they should be used in bar plots when 3 colors are needed
+## THL qualitative colours in the order in which they should be used 
+## in bar plots when 3 colors are needed
 thlColors(n = 3, type = "quali", name = "bar")
 
 ## Attempt to generate 11 colours from twoway quantitative palette K1 yields an error

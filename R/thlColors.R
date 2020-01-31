@@ -8,10 +8,13 @@
 #' "quali" for qualitative palettes, 
 #' "quanti" for quantitative palettes and 
 #' "twoway" for twoway quantitative palettes
-#' @param name a character string specifying the name of the specific colour palette. Valid values include "line", "bar" and NULL for type "quali", 
+#' @param name a character string specifying the name of the specific colour palette. 
+#' Valid values include "line", "bar" and NULL for type "quali", 
 #' "S1" - "S6" for type "quanti" and "K1" - "K6" for type "twoway" (see examples)
-#' @param allow.interpolation a logical TRUE/FALSE whather colour palette interpoation with grDevices::colorRampPalette() should be allowed 
-#' if n is outside the range of official number of colours in each quantitative or twoway quantitative palettes.  
+#' @param allow.interpolation a logical TRUE/FALSE whather colour palette 
+#' interpoation with grDevices::colorRampPalette() should be allowed 
+#' if n is outside the range of official number of colours in each quantitative 
+#' or twoway quantitative palettes.  
 #' @param alpha Amount of transparency, 1 = not transparent, 0 = fully transparent.
 #' Recycled.
 #' @param thin Amount of lightening, 1 = none, 0 = white.
@@ -41,7 +44,8 @@
 #' ## THL qualitative colours in the order in which they should be used in line plots
 #' thlColors(n = 6, type = "quali", name = "line")
 #' 
-#' ## THL qualitative colours in the order in which they should be used in bar plots when 3 colors are needed
+#' ## THL qualitative colours in the order in which they should be used 
+#' ## in bar plots when 3 colors are needed
 #' thlColors(n = 3, type = "quali", name = "bar")
 #' 
 #' ## Attempt to generate 11 colours from twoway quantitative palette K1 yields an error
@@ -55,6 +59,7 @@ thlColors <- function(n = 1, type = "main",
                               name = NULL, 
                               allow.interpolation = FALSE, 
                       alpha = 1, thin = 1) {
+  .Deprecated("palette_thl")
   if(isTRUE(allow.interpolation)){require(grDevices)}
   type <- match.arg(type, choices = c("main", "quali", "quanti", "twoway", "powerpoint"))
   if(!type %in% c("main", "quali", "quanti", "twoway", "powerpoint")){

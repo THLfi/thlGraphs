@@ -9,7 +9,8 @@ thlPlotLogo(label, lang = "fi", x, y, size, fontsize)
 \arguments{
 \item{label}{Label before the logo}
 
-\item{lang}{Language of logo}
+\item{lang}{Language of the logo
+Finnish, swedish and english versions are available.}
 
 \item{x}{x-position of the logo}
 
@@ -23,6 +24,7 @@ thlPlotLogo(label, lang = "fi", x, y, size, fontsize)
 Insert THL logo to a plot
 }
 \examples{
+\dontrun{
 ## Generate data for demonstration 
 year <- 1999:2017
 set.seed(1234)
@@ -30,7 +32,8 @@ value1 <- jitter(c(250:(250+length(year)-1)), factor = 100)*1000
 value2 <- jitter(c(200:(200-length(year)+1)), factor = 300)*1000
 value3 <- jitter(c(100:(100-length(year)+1)), factor = 400)*1000
 dat <- data.frame(year = rep(year,3), value = c(value1, value2, value3), 
-                group = factor(rep(c("Rabbits", "Magicians", "Playing cards"), each = length(year))))
+                  group = factor(rep(c("Rabbits", "Magicians", "Playing cards"), 
+                                     each = length(year))))
 dat$value <- with(dat, ifelse(year \%in\% c(2012,2013) & group == "Rabbits", NA, value))
 dat$value <- with(dat, ifelse(year == 2007 & group == "Magicians", NA, value))
 
@@ -39,6 +42,7 @@ thlLinePlot(data = subset(dat, year<2007), xvar = year, yvar = value,
                    groupvar = group, ylimits = c(0,350000))
 ## Add THL logo to the plot                   
 thlPlotLogo("Source: ", "en", .71, .02, 0.9, fontsize = 10)
+}
 }
 \author{
 Petteri Mäntymaa, Tarja Palosaari,  Salla Toikkanen

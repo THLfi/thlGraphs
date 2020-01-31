@@ -4,9 +4,15 @@
 \alias{thlTheme}
 \title{THL visual theme using ggplot2}
 \usage{
-thlTheme(show.grid.y = TRUE, show.grid.x = FALSE, base.size = 16,
-  basic.lwd = 3, legend.position = "none", horizontal = FALSE,
-  x.axis.title = FALSE)
+thlTheme(
+  show.grid.y = TRUE,
+  show.grid.x = FALSE,
+  base.size = 16,
+  basic.lwd = 3,
+  legend.position = "none",
+  horizontal = FALSE,
+  x.axis.title = FALSE
+)
 }
 \arguments{
 \item{show.grid.y}{Show background horizontal grid TRUE/FALSE?}
