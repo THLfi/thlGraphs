@@ -1,0 +1,121 @@
+---
+title: "thlGraphs Vignette Colors"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{thlGraphs Vignette Colors}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = NA,
+  warning = FALSE,
+  fig.width = 7, 
+  fig.height = 1
+)
+library(thlGraphs)
+```
+
+## Demostration of using THL's colors
+
+`thlGraphs` defines colors, color palettes and color sets matching THL's visual guidelines and graphical theme.
+
+Colors are named as well the palettes.
+
+### Color names
+
+Picking single colors is done by referring them by their name in `colors_thl()`.
+`colornames_thl` lists all predefined color names.
+Names are defined both in English and in Finnish.
+
+Displaying both English and Finnish main color names:
+
+```{r}
+colornames_thl()
+```
+
+`thlGraphs` also defines many secondary colors which are tinted versions of the main colors. 
+These colors can be found eg. in continuous color palettes.
+Names for these can be found with `colornames_thl(include.secondary = TRUE)`
+
+
+### Usage of colors and color names
+
+In following examples we pick some of these colors and preview them as plot.
+
+`colors_thl()` returns colors' corresponding hex-values.
+`plot_colors` draws a plot showing the hex value of input and the corresponding actual color.
+
+Example of picking three colors by their name and plotting them:
+
+```{r example_colorsbyname}
+mycolors <- colors_thl(c("thl.green", "ruby", "petrol"))
+plot_colors(mycolors)
+```
+
+
+### Usage of color palettes
+
+Color palettes define a group of colors which can be used together.
+
+In `thlGraphs` there are three types of palettes depending on the use case.
+Options are:
+
+- sequence ("s1"..."s6): six different palettes, colors changing from lightr to darker
+- diverging ("k1"..."k6): six different palettes, colors changing from one to another, having a light color in middle
+- categorical ("quali", "line", "area"): three different palettes for marking different groups
+
+`palette_thl` returns palette's hex-values of colors.
+User selects name of the palette and  number of colors.
+
+
+Example of picking six colors from a qualitative palette and plotting them:
+
+```{r}
+mypalette <- palette_thl(name = "quali", n = 6)
+plot_colors(mypalette, nrow = 1)
+```
+
+Example of picking five colors from a series palette and plotting them:
+
+```{r}
+mypalette <- palette_thl(name = "s2", n = 5)
+plot_colors(mypalette, nrow = 1)
+```
+
+Example of picking five colors from a diverging palette and plotting them:
+
+```{r}
+mypalette <- palette_thl(name = "k4", n = 5)
+plot_colors(mypalette, nrow = 1)
+```
+
+
+### Usage of color sets
+
+In addition to color palettes `thlGraphs` defines predefined color sets for categorizing groups.
+These sets are predefined for meeting accessibility requirements.
+
+There are two types of sets for both "line" and "area" type of plots.
+These sets are defined for couples and triples of colors.
+
+`colorset_thl` returns set's hex-values of colors.
+User selects type of the set, number of colors in the set and serial number of the set.
+
+
+For example plan is to make stacked bar chart and there are two different groups:
+
+```{r}
+colors <- colorset_thl(set = "area", n = 2, set_id = 1)
+plot_colors(colors)
+```
+
+For example plan is to make line chart and there are three different groups:
+
+```{r}
+colors <- colorset_thl(set = "line", n = 3, set_id = 1)
+plot_colors(colors)
+```
+

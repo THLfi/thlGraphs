@@ -1,11 +1,7 @@
-#' Insert THL logo to a plot
-#' @param label Label before the logo  
-#' @param lang Language of the logo
-#' Finnish, swedish and english versions are available.
+#' Insert THL default logo to a plot
 #' @param x x-position of the logo
 #' @param y y-position of the logo
 #' @param size Logo size
-#' @param fontsize Label fontsize
 #' @import png
 #' @import grid
 #' @author Petteri Mäntymaa, Tarja Palosaari,  Salla Toikkanen
@@ -27,42 +23,24 @@
 #' thlLinePlot(data = subset(dat, year<2007), xvar = year, yvar = value, 
 #'                    groupvar = group, ylimits = c(0,350000))
 #' ## Add THL logo to the plot                   
-#' thlPlotLogo("Source: ", "en", .71, .02, 0.9, fontsize = 10)
+#' thlPlotLogo(0.78, 0.92, 1.7)
 #' }
 #' @export 
 
-# Function to draw your statement (TODO:CHANGE FONT & COLOR)
-thlPlotLogo <- function(label,
-                        lang = "fi",
-                        x,
-                        y,
-                        size,
-                        fontsize) {
-  lang <- match.arg(lang, choices = c("fi", "sv", "en"))
-  if(!lang %in% c("fi", "sv", "en")){
-    stop("Argument lang should be one of the following: \"fi\",  \"sv\", \"en\".")
-  } else if(lang == "en") {
-    logowd <- 6.5
-  } else {
-    logowd <- 5.5
+thlPlotLogo <- function(x,y,size) {
+  if((!is.numeric(x)|x<0|x>1)|(!is.numeric(y)|y<0|y>1)) {
+    stop("x and y must be numeric [0,1]")
   }
-  image <- png::readPNG(
-    system.file("extdata",
-                paste0("thl-logo-",lang,".png"),
-                package = "thlGraphs",
-                mustWork = TRUE))
-  lab <- grid::textGrob(label = label,
-                        x = unit(x, "npc"),
-                        y = unit(y, "npc"),
-                        just = c("left", "centre"),
-                        gp = grid::gpar(fontsize = fontsize))
+  if(!is.numeric(size)|size<0) {
+    stop("size must be numeric and non-negative")
+  }
+  image <- png::readPNG(logopath())
   logo <- grid::rasterGrob(image = image,
-                           x = unit(x, "npc") + unit(1, "grobwidth", lab),
+                           x = unit(x, "npc"),
                            y = unit(y, "npc"),
-                           width = unit(logowd*size, "cm"),
+                           width = unit(2*size, "cm"),
                            height = unit(size, "cm"),
                            just = c("left", "centre"),
-                           gp = grid::gpar(fontsize = fontsize))
-  grid::grid.draw(lab)
+                           interpolate = T)
   grid::grid.draw(logo)
 }

@@ -22,7 +22,7 @@
 #' @examples
 #' 
 #' thlShade("red", alpha = .40)
-#' thlShade(thlColors(type = "main"), alpha = .8, thin = .5)
+#' thlShade(palette_thl("quali", n = 8), alpha = .8, thin = .5)
 #'
 #' 
 thlShade <- function(col, alpha = .25, thin = 1) {

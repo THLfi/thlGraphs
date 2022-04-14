@@ -47,7 +47,7 @@ thlBarPlot <- function(data,
                      groupvar = NULL, 
                      ylabel = yvar, 
                      xlabel = NULL,
-                     colors = thlColors(n = 5, type = "quali", name ="bar"),
+                     colors = palette_thl(name = "area", n = 5),
                      title = NULL, 
                      subtitle = NULL, 
                      caption = NULL, 
@@ -123,13 +123,13 @@ thlBarPlot <- function(data,
          caption = caption) +
     
     ## THL visual theme
-    thlTheme(show.grid.y = show.grid.y,
-              show.grid.x = show.grid.x, base.size = base.size,
-              legend.position = legend.position, horizontal = horizontal,
-             x.axis.title =  ifelse(!is.null(xlabel), TRUE, FALSE)) +
+    suppressWarnings(
+      thlTheme(show.grid.y = show.grid.y,
+               show.grid.x = show.grid.x, base.size = base.size,
+               legend.position = legend.position, horizontal = horizontal,
+               x.axis.title =  ifelse(!is.null(xlabel), TRUE, FALSE))) +
     xlab(ifelse(!is.null(xlabel), xlabel, "")) +
-    thlYaxisControl(lang = lang, limits = ylimits, breaks = yaxis.breaks,
-                      sec.axis.breaks = brks, sec.axis.labels = labsut) +
+    thlYaxisControl(lang = lang, limits = ylimits, breaks = yaxis.breaks) +
     
     scale_x_discrete(breaks =  xaxis.breaks, labels = xaxis.labels) + ## NEW, for discrete values
     ## THL colors

@@ -11,7 +11,7 @@ thlBarPlot(
   groupvar = NULL,
   ylabel = yvar,
   xlabel = NULL,
-  colors = thlColors(n = 5, type = "quali", name = "bar"),
+  colors = palette_thl(name = "area", n = 5),
   title = NULL,
   subtitle = NULL,
   caption = NULL,

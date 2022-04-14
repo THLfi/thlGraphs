@@ -18,7 +18,7 @@ colornames_thl <- function(lang = c("fi", "en"), include.secondary = FALSE) {
   lang <- match.arg(lang, several.ok = TRUE)
   colors <- colors_thl_
   if (isFALSE(include.secondary)) {
-    colors <- subset(colors_thl_, !is.na(description))
+    colors <- subset(colors_thl_, description != "")
   } 
   colors <- subset(colors, select =  c("color_nimi", "color_name"))
   names(colors) <- c("fi", "en")
@@ -30,10 +30,11 @@ colornames_thl <- function(lang = c("fi", "en"), include.secondary = FALSE) {
 #' 
 #' Generate THL colos by referring to them with finnish or english name
 #' 
-#' @param colorname Names of the colors in finnish or in english
+#' @param colorname Names of the colors in finnish or in english. See `colornames_thl()`
 #' 
 #' @export
 #' @examples
+#' all_names <- colornames_thl()
 #' colors_thl("thl.green")
 #' colors_thl("petrol")
 colors_thl <- function(colorname = NULL) {
@@ -45,9 +46,14 @@ colors_thl <- function(colorname = NULL) {
 
 #' Generate predefined THL color sets 
 #' 
-#' @param set Name of the color set
-#' @param n Number of colors in set
-#' @param set_id Identifier of set
+#' Generates colorsets with 2 or 3 predefined colors. 
+#' These are useful when making plots with that many different groups.
+#' There is 12 different sets for both line and area type of plots. 
+#' 6 of them is for colors pairs and 6 of them is for color triples.
+#' 
+#' @param set Name of the color set. Options: area/pinta or line/viiva
+#' @param n Number of colors in set. Options: 2 or 3
+#' @param set_id Identifier of set, numercal value 1-6.
 #' 
 #' @export
 #' @examples
@@ -73,6 +79,16 @@ colorset_thl <- function(set, n, set_id = 1) {
 #' Generate THL color palette
 #' 
 #' Get the hex values of colors in predefined THL color palette.
+#' For possible values see the details.
+#' 
+#' Sequential, one-way palettes: “s1”, “s2”, “s3”, “s4”, “s5”, “s6”.
+#' Diverging, two-way palettes: “k1”, “k2”, “k3”, “k4”, “k5”, “k6”.
+#' Qualitative palettes:
+#'   - “quali” or "laadullinen": all qualitative colors
+#'   - “line” or "viiva": colors for lineplots 
+#'   - “area” or "pinta": colors for barplots or other plots with large areas to be filled
+#'   - “theme” or "teema": other named colors
+#' 
 #' 
 #' @param name Spesify the name of the palette.
 #' @param n Number of colours to generate from palette.
@@ -152,7 +168,7 @@ plot_colors <- function(hexcode, nrow = NULL) {
 #' 
 #' Simple helpful wrapper to quickly see colors in a THL palette.
 #' 
-#' @param name String spesifying the name of the palette
+#' @inheritParams palette_thl
 #' @param n Number of colors to be printed from the palette
 #' 
 #' @export
@@ -167,3 +183,24 @@ plot_palette_thl <- function(name, n = NULL) {
   plot_colors(hexcodes, nrow = 1)
 }
 
+#' View all THL colors, hexacodes and colornames
+#' 
+#' @param nrow Number of rows used in plotting window
+#' 
+#' @export
+#' @examples 
+#' plot_thl_colors()
+plot_thl_colors<-function (nrow = NULL) {
+  hexcode_names<-colornames_thl("fi")
+  hexcode<-colors_thl(c(hexcode_names))
+  
+  df <- data.frame(col = factor(hexcode, levels = unique(hexcode)),
+                   colname=paste0(hexcode,"\n",hexcode_names),
+                   group = seq_along(hexcode))
+  ggplot(data = df, aes(x = 1, y = 1, fill = col, label = colname)) + 
+    geom_tile() +
+    geom_text() +
+    scale_fill_identity() +
+    facet_wrap("group",nrow = nrow) +
+    theme_void()
+}

@@ -2,26 +2,19 @@
 % Please edit documentation in R/thlPlotLogo.R
 \name{thlPlotLogo}
 \alias{thlPlotLogo}
-\title{Insert THL logo to a plot}
+\title{Insert THL default logo to a plot}
 \usage{
-thlPlotLogo(label, lang = "fi", x, y, size, fontsize)
+thlPlotLogo(x, y, size)
 }
 \arguments{
-\item{label}{Label before the logo}
-
-\item{lang}{Language of the logo
-Finnish, swedish and english versions are available.}
-
 \item{x}{x-position of the logo}
 
 \item{y}{y-position of the logo}
 
 \item{size}{Logo size}
-
-\item{fontsize}{Label fontsize}
 }
 \description{
-Insert THL logo to a plot
+Insert THL default logo to a plot
 }
 \examples{
 \dontrun{
@@ -41,7 +34,7 @@ dat$value <- with(dat, ifelse(year == 2007 & group == "Magicians", NA, value))
 thlLinePlot(data = subset(dat, year<2007), xvar = year, yvar = value, 
                    groupvar = group, ylimits = c(0,350000))
 ## Add THL logo to the plot                   
-thlPlotLogo("Source: ", "en", .71, .02, 0.9, fontsize = 10)
+thlPlotLogo(0.78, 0.92, 1.7)
 }
 }
 \author{

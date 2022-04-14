@@ -79,8 +79,7 @@
 #'                   ylab = "#N",
 #'                   base.size = 18, 
 #'                   linewidth = 4,
-#'                   colors = thlColors(n = 3, type ="quali", 
-#'                    name = "line", alpha = 0.8), 
+#'                   colors = palette_thl(name = "line", n = 3),
 #'                   ylimits = c(0,350000))
 
 #' ## By default the missing values are not plotted
@@ -161,7 +160,7 @@
 #' odottaneet kolmannesvuosittain 2015 - 2018",
 #'            caption="", xaxis.breaks = c("12/2015","12/2016","12/2017",
 #'            "12/2018"))
-#' thlPlotLogo(label = NULL, x = .67, y = .04, size = 1, fontsize = 10)
+#' thlPlotLogo(0.78, 0.92, 1.7)
 #' }
 #' @export 
 
@@ -170,9 +169,8 @@ thlLinePlot<-function(data,
                              yvar, 
                              groupvar = NULL, 
                              ylabel = yvar, 
-                             xlabel = NULL,                      
-                             colors = thlColors(n = 12, type = "quali", 
-                                                        name ="line"),
+                             xlabel = NULL,
+                      colors = palette_thl(name = "line", n = 7),
                              title = NULL, 
                              subtitle = NULL, 
                              caption = NULL, 
@@ -280,10 +278,11 @@ thlLinePlot<-function(data,
     labs(title = title,
          subtitle = subtitle,
          caption = caption) +
-    thlTheme(show.grid.y = show.grid.y, 
-              show.grid.x = show.grid.x, base.size = base.size, 
-              legend.position = legend.position, 
-              x.axis.title = ifelse(!is.null(xlabel), TRUE, FALSE)) +
+    suppressWarnings(
+      thlTheme(show.grid.y = show.grid.y,
+               show.grid.x = show.grid.x, base.size = base.size,
+               legend.position = legend.position,
+               x.axis.title = ifelse(!is.null(xlabel), TRUE, FALSE))) +
     xlab(ifelse(!is.null(xlabel), xlabel, "")) + 
     scale_color_manual(values=colors) +
     thlYaxisControl(lang = lang, limits = ylimits, breaks = yaxis.breaks,

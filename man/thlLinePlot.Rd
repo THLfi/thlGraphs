@@ -11,7 +11,7 @@ thlLinePlot(
   groupvar = NULL,
   ylabel = yvar,
   xlabel = NULL,
-  colors = thlColors(n = 12, type = "quali", name = "line"),
+  colors = palette_thl(name = "line", n = 7),
   title = NULL,
   subtitle = NULL,
   caption = NULL,
@@ -137,8 +137,7 @@ thlLinePlot(data = subset(dat, year<2007), xvar = year, yvar = value,
                   ylab = "#N",
                   base.size = 18, 
                   linewidth = 4,
-                  colors = thlColors(n = 3, type ="quali", 
-                   name = "line", alpha = 0.8), 
+                  colors = palette_thl(name = "line", n = 3),
                   ylimits = c(0,350000))
 ## By default the missing values are not plotted
 thlLinePlot(data = dat, xvar = year, yvar = value, groupvar = group, 
@@ -211,7 +210,7 @@ thlLinePlot(data = yli180, xvar = kk2, yvar = pros, ylimits = c(0,2), ylab = "\%
 odottaneet kolmannesvuosittain 2015 - 2018",
            caption="", xaxis.breaks = c("12/2015","12/2016","12/2017",
            "12/2018"))
-thlPlotLogo(label = NULL, x = .67, y = .04, size = 1, fontsize = 10)
+thlPlotLogo(0.78, 0.92, 1.7)
 }
 }
 \author{

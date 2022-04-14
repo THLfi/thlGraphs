@@ -4,12 +4,14 @@
 \name{yli180}
 \alias{yli180}
 \title{Erikoissairaanhoidosssa yli 180 vrk odottaneet}
-\format{A data frame with 10 rows and 2 variables:
+\format{
+A data frame with 10 rows and 2 variables:
 \describe{
 \item{kk}{month/year}
 \item{pros}{percent}
 ...
-}}
+}
+}
 \source{
 \url{https://bit.ly/THL-esimerkkiaineistot}
 }

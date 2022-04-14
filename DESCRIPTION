@@ -11,7 +11,7 @@ Authors@R: c(
 BugReports: Please contact the package maintainer
 Description: Tools for creating THL themed graphics adhering to the 2018 graphical guidelines
 License: EUPL
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.2
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Depends: R (>= 3.4.0), ggplot2

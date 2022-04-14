@@ -38,7 +38,7 @@ Recycled.}
 \item{thin}{Amount of lightening, 1 = none, 0 = white.}
 }
 \description{
-Generate THL colour palettes
+This function is deprecated, use palette_thl() instead.
 }
 \examples{
 ## Generate 3 colours from the quantitative colour palette S2

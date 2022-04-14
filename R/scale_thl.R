@@ -108,7 +108,7 @@ scale_y_continuous_thl <- function(limits = NULL, expand = waiver_thl(),
                                    ..., breaks = waiver_thl()) {
   #if (is.null(expand)) {
   if (is.waiverthl(expand)) {
-    expand <- expand_scale(mult = c(0, 0.05), add = c(0, 0))
+    expand <- expansion(mult = c(0, 0.05), add = c(0, 0))
   }
   if (is.waiverthl(labels)) {
     labels <- function(x) {format_thl(x, language = language)}

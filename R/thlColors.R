@@ -1,5 +1,7 @@
 #' Generate THL colour palettes
 #' 
+#' This function is deprecated, use palette_thl() instead.
+#' 
 #' @author  Salla Toikkanen, Tarja Palosaari, Petteri Mäntymaa
 #' @param n a numerical value describing how many colours 
 #' @param type a character string describing the type of colour palette. 
